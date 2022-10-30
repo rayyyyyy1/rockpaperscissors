@@ -14,33 +14,25 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection=="rock")
             losses++;
             else wins++;
+    document.querySelector('.score');
+    const scoretext=document.createElement('p');
+    scoretext.textContent=`The score is ${wins}:${losses}`;
+    console.log(wins);
         
   }
-   let wins=0;
-   let losses=0;
-  const choises=["rock", "paper","scissors"];
+
   function getComputerChoice(){
     return choises[Math.floor(Math.random()*choises.length)];
   }
-  function getPlayerChoice(){
-    let validinput=false;
-    while (validinput == false){
-    let alegere = prompt("Rock Paper Scissors??");
-    if (alegere == null)
-        continue;
-    let alegerelower = alegere.toLowerCase();
-    if (choises.includes(alegerelower)){
-        validinput=true;
-        return alegerelower;}
-  }}
-  function game(){
-    for(i=1;i<5;i++){
-        playerSelection = getPlayerChoice();
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection)
-    }
-    if (wins>losses)
-        console.log("You won");
-        else console.log("You lost");
-  }
-  game()
+  
+  function startGame(){
+    let btn = document.querySelector(".button");
+    console.log(btn.id);
+    //btn.addEventListener('click', console.log(this));
+       // btn.forEach((alegere) =>{
+       // alegere.addEventListener(('click'),() =>{console.log(alegere.id);playRound(alegere.id, getComputerChoice);})})
+}
+startGame();
+let wins=0;
+let losses=0;
+const choises=["rock","paper","scissors"];
